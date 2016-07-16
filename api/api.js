@@ -1,17 +1,18 @@
 /**
  * Created by SAGAR on 7/12/2016.
  */
-var Fual = require('./../model/fual');
+var Fuel = require('./../model/fuel');
 var mongoose = require('mongoose');
 var config = require('../config');
 var Counter = require('../model/dumbSchema');
 function apiHelper(req,res,str){
+
     var __bool = req.query['id'];
     var queryType = req.query['paramType'];
     var queryParam = req.query['paramVal'];
-    //console.log(__bool);
+
     if(queryType=='less'){
-        Fual.find({}).where(str).lt(queryParam).sort({str:__bool}).exec(function(err,user){
+        Fuel.find({}).where(str).lt(queryParam).sort({str:__bool}).exec(function(err,user){
             if(err)
                 res.send(err);
             else{
@@ -20,7 +21,7 @@ function apiHelper(req,res,str){
         });
     }
     else if(queryType=='great'){
-        Fual.find({}).where(str).gt(queryParam).sort({str:__bool}).exec(function(err,user){
+        Fuel.find({}).where(str).gt(queryParam).sort({str:__bool}).exec(function(err,user){
             if(err)
                 res.send(err);
             else
@@ -28,7 +29,7 @@ function apiHelper(req,res,str){
         });
     }
     else if(queryType=='equal'){
-        Fual.find({}).where(str).equals(queryParam).sort({str:__bool}).exec(function(err,user){
+        Fuel.find({}).where(str).equals(queryParam).sort({str:__bool}).exec(function(err,user){
             if(err)
                 res.send(err);
             else
@@ -37,7 +38,7 @@ function apiHelper(req,res,str){
     }
     else {
         if(str=='_id'){
-            Fual.find({}).sort({'_id':__bool}).exec(function(err,user){
+            Fuel.find({}).sort({'_id':__bool}).exec(function(err,user){
                 if(err)
                     res.send(err);
                 else
@@ -45,23 +46,23 @@ function apiHelper(req,res,str){
             });
         }
         else if(str=='distance'){
-            Fual.find({}).sort({'distance':__bool}).exec(function(err,user){
+            Fuel.find({}).sort({'distance':__bool}).exec(function(err,user){
                 if(err)
                     res.send(err);
                 else
                     res.send(user);
             });
         }
-        else if(str=='fual'){
-            Fual.find({}).sort({'fual':__bool}).exec(function(err,user){
+        else if(str=='fuel'){
+            Fuel.find({}).sort({'fuel':__bool}).exec(function(err,user){
                 if(err)
                     res.send(err);
                 else
                     res.send(user);
             });
         }
-        else if(str=='milage'){
-            Fual.find({}).sort({'milage':__bool}).exec(function(err,user){
+        else if(str=='mileage'){
+            Fuel.find({}).sort({'mileage':__bool}).exec(function(err,user){
                 if(err)
                     res.send(err);
                 else
@@ -72,41 +73,48 @@ function apiHelper(req,res,str){
 }
 module.exports =  function(app, express){
   var api = express.Router();
-  api.post('/fualdata', function(req, res){
+  api.post('/fueldata', function(req, res){
       Counter.findOneAndUpdate({ "key":'key'},{ $inc:{count: 1 }},{ "new" : true}, function (err, counter) {
-          if (err){}
+          if (err){
+              console.log('some error occur')
+          }
           else{
-              var  fual = new Fual({
-                  fual:req.body.fual,
-                  distance:req.body.distance,
-                  milage:req.body.milage,
+              var  fuel = new Fuel({
+                   fuel:req.body.fuel,
+                   distance:req.body.distance,
+                   mileage:req.body.mileage,
                   _id:counter.count
               });
-              fual.save(function(err){
+              fuel.save(function(err){
                   if(err){
                       res.send(err);
                   }
                   else res.json({message:'query sucesss'});
               });
           }
-      })
+      });
   });
+
  api.get('/id', function(req,res){
         apiHelper(req,res,'_id');
      });
-    api.get('/fual', function(req,res){
-        apiHelper(req,res,'fual');
+    api.get('/fuel', function(req,res){
+        apiHelper(req,res,'fuel');
     });
     api.get('/distance', function(req,res){
         apiHelper(req,res,'distance');
     });
-    api.get('/milage', function(req,res){
-        apiHelper(req,res,'milage');
+    api.get('/mileage', function(req,res){
+        apiHelper(req,res,'mileage');
     });
     api.get('/clear', function(req,res){
        Counter.remove({}, function(){});
-       new Counter({key:'key',count:0}).save();
-       Fual.remove({}, function(err){
+      var count = new Counter({key:'key',count:0});
+        count.save(function(err){
+            if(err)
+               console.log('error in creating dumey schema');
+        });
+       Fuel.remove({}, function(err){
            if(err)
                res.json({message:'failed'});
            else

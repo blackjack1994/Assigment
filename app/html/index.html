@@ -3,16 +3,11 @@
 <link rel="stylesheet" href='app/bootstrap.min.css'/>
 <script type="text/javascript"  src="app/jquery.js"></script>
 <script type="text/javascript"  src="app/script/script.js"></script>
-<script type="text/javascript"  src="app/script/script.js"></script>
 <script type="text/javascript"  src="app/script/bootstrap.min.js"></script>
-<!--<link rel="stylesheet" href='../../bootstrap.min.css'/>-->
-<!--<script type="text/javascript"  src="../../jquery.js"></script>-->
-<!--<script type="text/javascript"  src="../../script/script.js"></script>-->
-<!--<script type="text/javascript"  src="../../script/bootstrap.min.js"></script>-->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>fualpage</title>
+    <title>fueling</title>
     <style>
         .container{
             margin-top: 5em;
@@ -25,7 +20,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>This is fual data from last two month</h1>
+    <h1>This is fuel data from last two month</h1>
     <div class="row">
         <div class="col-lg-3">
             <div class="input-group">
@@ -37,28 +32,28 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li><a href="#" name="id"  onclick="handleClick('id','lessThen')">lessThen</a></li>
-                        <li><a href="#" name="id"  onclick="handleClick('id','GratherThen')">GratherThen</a></li>
+                        <li><a href="#" name="id"  onclick="handleClick('id','greaterThen')">greatherThen</a></li>
                         <li><a href="#" name="id"  onclick="handleClick('id','equalTo')">equalTo</a></li>
                     </ul>
-                </div><!-- /btn-group -->
-            </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
+                </div>
+            </div>
+        </div>
         <div class="col-lg-3">
             <div class="input-group">
-                <input type="text" class="form-control" aria-label="..." id="Input_fual">
+                <input type="text" class="form-control" aria-label="..." id="Input_fuel">
                 <div class="input-group-btn">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="Action_fual">
-                        <span id="__fual">Fual</span>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="Action_fuel">
+                        <span id="__fuel">Fuel</span>
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a  name="fual" onclick="handleClick('fual','lessThen')">lessThen</a></li>
-                        <li><a  name="fual" onclick="handleClick('fual','GratherThen')">GratharThen</a></li>
-                        <li><a  name="fual" onclick="handleClick('fual','equalTo')">equalTo</a></li>
+                        <li><a  name="fuel" onclick="handleClick('fuel','lessThen')">lessThen</a></li>
+                        <li><a  name="fuel" onclick="handleClick('fuel','greaterThen')">greaterThen</a></li>
+                        <li><a  name="fuel" onclick="handleClick('fuel','equalTo')">equalTo</a></li>
                     </ul>
-                </div><!-- /btn-group -->
-            </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
+                </div>
+            </div>
+        </div>
         <div class="col-lg-3">
             <div class="input-group">
                 <input type="text" class="form-control" aria-label="..." id="Input_dis">
@@ -69,37 +64,37 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li><a href="#" name="dis" onclick="handleClick('dis','lessThen')">lessThen</a></li>
-                        <li><a href="#" name="dis" onclick="handleClick('dis','GratherThen')">GratherThen</a></li>
+                        <li><a href="#" name="dis" onclick="handleClick('dis','greaterThen')">greaterThen</a></li>
                         <li><a href="#" name="dis" onclick="handleClick('dis','equalTo')">equalTo</a></li>
                     </ul>
-                </div><!-- /btn-group -->
-            </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
+                </div>
+            </div>
+        </div>
         <div class="col-lg-3">
             <div class="input-group">
-                <input type="text" class="form-control" aria-label="..." id="Input_milage">
+                <input type="text" class="form-control" aria-label="..." id="Input_mileage">
                 <div class="input-group-btn">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="Action_milage">
-                         <span id="__milage">Milage</span>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="Action_mileage">
+                         <span id="__mileage">Mileage</span>
                          <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="#"  name="milage" onclick="handleClick('milage','lessThen')">lessThen</a></li>
-                        <li><a href="#"  name="milage" onclick="handleClick('milage','Gratherhen')">GratherThen</a></li>
-                        <li><a href="#"  name="milage" onclick="handleClick('milage','equalTo')">equalTo</a></li>
+                        <li><a href="#"  name="mileage" onclick="handleClick('mileage','lessThen')">lessThen</a></li>
+                        <li><a href="#"  name="mileage" onclick="handleClick('mileage','greaterThen')">greaterThen</a></li>
+                        <li><a href="#"  name="mileage" onclick="handleClick('mileage','equalTo')">equalTo</a></li>
                     </ul>
-                </div><!-- /btn-group -->
-            </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
-    </div><!-- /.row -->
+                </div>
+            </div>
+        </div>
+    </div>
     <div>
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th id="fual_id">Serial no</th>
-                    <th id="fual_head">Fual(Lit)</th>
-                    <th id="fual_distance">Distance(Km)</th>
-                    <th id="fual_milage">Milage(Km/Lit)</th>
+                    <th id="fuel_id">Serial no</th>
+                    <th id="fuel_head">Fuel(Lit)</th>
+                    <th id="fuel_distance">Distance(Km)</th>
+                    <th id="fuel_mileage">Mileage(Km/Lit)</th>
                 </tr>
             </thead>
             <tbody id="main_body">
@@ -110,8 +105,8 @@
         <div class="col-lg-6 col-sm-6 col-md-6">
             <form role="form" id ='form_sub'>
                 <div class="form-group">
-                    <label for="fual">Fual :</label>
-                    <input type="number" id="fual"  placeholder="Enter fual for journey..." class="form-control" >
+                    <label for="fuel">Fuel :</label>
+                    <input type="number" id="fuel"  placeholder="Enter fuel for journey..." class="form-control" >
                 </div>
                 <div class="form-group">
                     <label for="distance">Distance :</label>
@@ -123,14 +118,14 @@
         <div class="col-sm-6 col-md-6 col-lg-6">
             <form role="form" id ='form_output'>
                 <div class="form-group">
-                    <label for="fual">Fual :</label>
-                    <input type="number" id="fual_output"  placeholder="Enter journey dis and get output fual..." class="form-control" >
-                    <input type="radio" name="fual_out" value="fual" >
+                    <label for="fuel">Enter Journey distance and get output fuel :</label>
+                    <input type="number" id="fuel_output"  placeholder="Enter journey dis and get output fuel..." class="form-control" >
+                    <input type="radio" name="fuel_out" value="fuel" >
                 </div>
                 <div class="form-group">
-                    <label for="distance">Distance :</label>
-                    <input type="number" id="distance_output"  placeholder="Enter journey fual and get output dis..." class="form-control">
-                    <input type="radio"   name="fual_out" value="distance" >
+                    <label for="distance">Enter journey fuel and get output distance :</label>
+                    <input type="number" id="distance_output"  placeholder="Enter journey fuel and get output dis..." class="form-control">
+                    <input type="radio"   name="fuel_out" value="distance" >
                 </div>
                 <label class="label-success form-control" id="label_out">not got yet!!</label>
                 <button class="btn btn-default"  id="btn-clear"  type="submit" onclick="clearFun()">clear data</button>
